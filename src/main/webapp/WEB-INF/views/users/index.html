@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<a th:href="@{/users/new}">Создать нового пользователя</a>
+<hr/>
+<ul th:each="user : ${users}">
+    <li>
+        <form th:method="post" th:action="@{/users/delete(id=${user.getId()})}">
+            <a th:href="@{/users/detail(id=${user.getId()})}" th:text="${user.getName()}"/>
+            <input type="submit" value="Удалить">
+        </form>
+    </li>
+</ul>
+
+
+</body>
+</html>

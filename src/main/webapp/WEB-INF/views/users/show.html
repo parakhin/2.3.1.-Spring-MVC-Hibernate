@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+    <form th:method="post" th:action="@{/users/update}" th:object="${user}">
+        <input type="hidden" th:field="*{id}">
+        <label for="name">Имя</label>
+        <input id="name" th:field="*{name}">
+        <label for="age">Имя</label>
+        <input id="age" th:field="*{age}">
+        <input type="submit" value="Сохранить">
+    </form>
+</body>
+</html>
