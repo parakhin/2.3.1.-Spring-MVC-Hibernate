@@ -3,11 +3,11 @@ package ru.psy.kataHibernateMVC.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users2")
+@Table(name = "users3")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private int age;
 
@@ -19,11 +19,11 @@ public class User {
         this.age = age;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

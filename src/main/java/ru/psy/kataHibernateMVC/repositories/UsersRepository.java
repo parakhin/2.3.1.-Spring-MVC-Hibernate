@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.psy.kataHibernateMVC.models.User;
 
 @Repository
-public interface UsersRepository extends JpaRepository<User, Integer> {
+public interface UsersRepository extends JpaRepository<User, Long> {
 }

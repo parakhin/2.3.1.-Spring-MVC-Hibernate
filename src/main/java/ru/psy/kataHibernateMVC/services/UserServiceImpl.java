@@ -9,7 +9,6 @@ import ru.psy.kataHibernateMVC.repositories.UsersRepository;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
     private final UsersRepository usersRepository;
 
@@ -19,12 +18,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> findAll() {
         return usersRepository.findAll();
     }
 
     @Override
-    public User findOne(int id) {
+    @Transactional(readOnly = true)
+    public User findOne(Long id) {
         return usersRepository.findById(id).orElse(null);
     }
 
@@ -36,14 +37,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void update(int id, User user) {
+    public void update(Long id, User user) {
         user.setId(id);
         usersRepository.save(user);
     }
 
     @Override
     @Transactional
-    public void delete(int id) {
+    public void delete(Long id) {
         usersRepository.deleteById(id);
     }
 }

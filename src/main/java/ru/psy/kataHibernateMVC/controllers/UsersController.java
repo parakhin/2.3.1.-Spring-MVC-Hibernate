@@ -23,7 +23,7 @@ public class UsersController {
     }
 
     @GetMapping("/detail")
-    public String show(@RequestParam("id") Integer id, Model model) {
+    public String show(@RequestParam("id") Long id, Model model) {
         model.addAttribute("user", userService.findOne(id));
         return "/users/show";
     }
@@ -47,7 +47,7 @@ public class UsersController {
     }
 
     @PostMapping("/delete")
-    public String delete(@RequestParam("id") Integer id) {
+    public String delete(@RequestParam("id") Long id) {
         userService.delete(id);
         return "redirect:/users/";
     }
